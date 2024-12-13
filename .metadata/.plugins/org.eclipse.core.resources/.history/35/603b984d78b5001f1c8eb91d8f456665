@@ -1,0 +1,31 @@
+package service;
+
+import com.employment.model.EmploymentAgreement;
+
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Service
+public class EmploymentAgreementService {
+
+    private List<EmploymentAgreement> agreements = new ArrayList<>();
+
+    public List<EmploymentAgreement> getAllAgreements() {
+        return agreements;
+    }
+
+    public EmploymentAgreement createAgreement(EmploymentAgreement agreement) {
+        agreement.setId(String.valueOf(agreements.size() + 1));
+        agreements.add(agreement);
+        return agreement;
+    }
+
+    public EmploymentAgreement getAgreementById(String id) {
+        return agreements.stream()
+                .filter(a -> a.getId().equals(id))
+                .findFirst()
+                .orElse(null);
+    }
+}

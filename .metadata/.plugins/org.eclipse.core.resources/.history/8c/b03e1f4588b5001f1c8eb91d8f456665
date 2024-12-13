@@ -1,0 +1,2 @@
+INSERT INTO employment_agreement (id, employee_name, role, start_date, end_date, salary, terms)
+VALUES ('1', 'John Doe', 'Developer', '2024-01-01', '2024-12-31', 80000, 'Standard Terms');
